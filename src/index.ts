@@ -18,7 +18,7 @@ class DevFeedbackLog {
     const premiumErrorMessage = "You must pay to leave feedback, or remain silent. That will be at least 0.1 NEAR, please. Thank you. Good day. Goodbye.";
     assert(hasPremium, premiumErrorMessage);
     const sender = near.predecessorAccountId();
-    const dateTime = Date.now().toString();
+    const dateTime = Date.now().toLocaleString();
 
     const isNewMessage = findMessageIndexByAuthorAndTitle(sender, title, this.messages);
     const errorMessage = "You have already left feedback with this title. Please choose a new title.";
