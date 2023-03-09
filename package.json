@@ -1,0 +1,35 @@
+{
+  "name": "dev-feedback-contract",
+  "version": "1.0.0",
+  "description": "NEAR on-chain program storing developer feedback gathered through NEAR Social",
+  "main": "index.ts",
+  "type": "module",
+  "scripts": {
+    "build": "near-sdk-js build src/index.ts build/contract.wasm",	
+    "test": "ava"
+  },
+  "author": "idea404",
+  "license": "ISC",
+  "dependencies": {
+    "near-sdk-js": "^1.0.0"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.1",
+    "ava": "^5.2.0",
+    "near-workspaces": "^3.3.0"
+  },
+  "ava": {
+    "files": [
+      "tests/**/*.ava.js"
+    ],
+    "require": [],
+    "failFast": false,
+    "timeout": "2m",
+    "failWithoutAssertions": true,
+    "environmentVariables": {
+      "MY_ENVIRONMENT_VARIABLE": "EXAMPLE1"
+    },
+    "verbose": true,
+    "nodeArguments": []
+  }
+}
