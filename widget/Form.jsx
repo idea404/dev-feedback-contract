@@ -1,4 +1,4 @@
-const contract = "dev.feedback.idea404.testnet";
+const contract = "devideas.somepublicaddress.near";
 
 State.init({ titleString: "", feedbackString: "" });
 
@@ -11,14 +11,20 @@ const changeTitle = ({ target }) => {
 };
 
 const onBtnClick = () => {
-  if (!state.new_greeting) {
+  if (!state.feedbackString || !state.titleString) {
     return;
   }
 
-  Near.call(contract, "add_new_feedback", {
-    title: state.titleString,
-    text: state.new_greeting,
-  });
+  Near.call(
+    contract, 
+    "add_new_feedback", 
+    {
+      title: state.titleString,
+      text: state.feedbackString,
+    },
+    "300" + "0".repeat(12), // 300 Tgas
+    "1" + "0".repeat(23)    // 0.1 NEAR
+  );
 };
 
 // Define components
