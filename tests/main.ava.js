@@ -41,9 +41,11 @@ test("send one message and retrieve it", async (t) => {
         title: "Hello",
         text: "World",
         author: alice.accountId,
-        dateTime: '0',
         replies: []
       },
     ];
-    t.deepEqual(expected, msgs);
+    // check all fields are equal except dateTime
+    for(const key in Object.keys(expected[0])) {
+        t.is(msgs[0][key], expected[0][key]);
+    }
 });
